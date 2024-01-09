@@ -21,7 +21,7 @@ export class NavBarForm extends Component {
 
   render() {
     return (
-        <div class={css.NavBar}>
+        <div className={css.NavBar}>
         <h1>
             My Gallery
         </h1>

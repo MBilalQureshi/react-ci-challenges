@@ -17,9 +17,12 @@ export class Content extends Component {
             <h1>My Photos</h1>
         </div>
         <div className={css.SearchResults}>
-            {savedPosts.map(item => (
-                <div className={css.SearchItem}>
-                    <p>Individual Post</p>
+            {savedPosts.map(post => (
+                <div key={post.title} className={css.SearchItem}>
+                    <p>{post.title}</p>
+                    <p>{post.name}</p>
+                    <img src={post.image} />
+                    <p>{post.description}</p>
                 </div>
             ))}
         </div>
