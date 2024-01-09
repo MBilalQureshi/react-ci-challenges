@@ -16,3 +16,6 @@ function PostItem(props) {
 }
 
 export default PostItem
+// Extra Tasks:
+// Try Refactoring your code to:
+// Within the PostItem.js map function, try destructuring the posts from posts.json to 4 separate values e.g. name, title, description, and image.
