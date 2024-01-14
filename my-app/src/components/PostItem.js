@@ -7,7 +7,7 @@ function PostItem(props) {
             <div key={post.title} className={props.css.SearchItem}>
                 <p>{post.title}</p>
                 <p>{post.name}</p>
-                <img src={post.image} />
+                <img src={post.image} alt={post.title}/>
                 <p>{post.description}</p>
             </div>
         )}
