@@ -5,6 +5,7 @@ import NavBarForm from "./components/NavBarForm";
 import Content from './components/Content';
 import ContentHooks from './components/ContentHooks';
 import ContentAPI from './components/ContentAPI';
+import ContentAPIHooks from './components/ContentAPIHooks';
 
 function App() {
   return (
@@ -17,7 +18,9 @@ function App() {
       {/* Converting above Content.js to ContentHooks, original work is still there */}
       {/* <ContentHooks /> */}
       {/* Content.js and PostItem.js files to ContentAPI.js, and PostItemAPI.js, original work is still there. */}
-      <ContentAPI />
+      {/* <ContentAPI /> */}
+      {/* Coverting ContentAPI.js to ContentAPIHooks.js using functional component using hooks*/}
+      <ContentAPIHooks />
     </div>
   );
 }
