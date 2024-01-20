@@ -3,12 +3,12 @@ import React from 'react'
 function PostItemAPI(props) {
   return (
     <div>
-        {props.savedPosts.map(post => 
-            <div key={post.title} className={props.css.SearchItem}>
-                <p>{post.title}</p>
-                <p>{post.name}</p>
-                <img src={post.image} alt={post.title}/>
-                <p>{post.description}</p>
+        {props.fetchedAPIPosts.map(post => 
+            <div key={post.id} className={props.css.SearchItem}>
+                <p>{post.type}</p>
+                <p>{post.user}</p>
+                <img src={post.webformatURL} alt={post.tags}/>
+                <p>{post.tags}</p>
             </div>
         )}
     </div>

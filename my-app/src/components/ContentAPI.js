@@ -1,8 +1,9 @@
 import css from './css/Content.module.css'
 import React, { Component } from 'react'
-import {savedPosts} from '../posts.json'
-import PostItemAPI from './PostItem'
+import PostItemAPI from './PostItemAPI'
 import Loader from './Loader'
+import axios from 'axios'
+import API_KEY from '../secrets'
 
 export class ContentAPI extends Component {
     constructor(props) {
@@ -12,6 +13,7 @@ export class ContentAPI extends Component {
          isLoaded: true,
          posts: [],
          name:'',
+         savedPosts:[],
       }
     }
 
@@ -24,14 +26,30 @@ export class ContentAPI extends Component {
     }
 
     componentDidMount(){
-      this.posts = savedPosts
-      this.isContentLoaded();
+      this.fetchImages();
+    //   this.posts = savedPosts
+
+    }
+
+    async fetchImages(){
+        axios.get("https://pixabay.com/api/?key="+API_KEY+"&q=100")
+        .then(response => {
+            const fetchedPosts = response.data.hits
+            console.log(fetchedPosts)
+
+            this.setState({
+                isLoaded : false,
+                posts : fetchedPosts,
+                savedPosts: fetchedPosts,
+            })
+        })
+        console.log(this.state.savedPosts)
     }
 
     handleNameChange = (event) =>{
       const name = event.target.value
-      const filteredPosts = savedPosts.filter(posts => 
-          posts.name.toLowerCase().includes(name)
+      const filteredPosts = this.state.savedPosts.filter(posts => 
+          posts.user.toLowerCase().includes(name)
         )
 
       this.setState({
@@ -54,7 +72,7 @@ export class ContentAPI extends Component {
             </form>
         </div>
         <div className={css.SearchResults}>
-          {this.state.isLoaded ? (<Loader />): (<PostItemAPI savedPosts={this.state.posts} css={css}/>)}
+          {this.state.isLoaded ? (<Loader />): (<PostItemAPI fetchedAPIPosts={this.state.posts} css={css}/>)}
            
         </div>
       </div>
