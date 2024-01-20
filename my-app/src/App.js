@@ -4,6 +4,7 @@ import NavBarSimple from "./components/NavBarSimple";
 import NavBarForm from "./components/NavBarForm";
 import Content from './components/Content';
 import ContentHooks from './components/ContentHooks';
+import ContentAPI from './components/ContentAPI';
 
 function App() {
   return (
@@ -13,8 +14,10 @@ function App() {
       {/* <NavBarSimple /> */}
       <NavBarForm />
       {/* <Content /> */}
-      {/* Converting above Content to ContentHooks */}
-      <ContentHooks />
+      {/* Converting above Content.js to ContentHooks, original work is still there */}
+      {/* <ContentHooks /> */}
+      {/* Content.js and PostItem.js files to ContentAPI.js, and PostItemAPI.js, original work is still there. */}
+      <ContentAPI />
     </div>
   );
 }
